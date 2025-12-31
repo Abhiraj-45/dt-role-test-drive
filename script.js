@@ -43,3 +43,21 @@ const sheetData = [
     }
   }
 ];
+
+const app = document.getElementById("app");
+
+sheetData.forEach(item => {
+  const row = document.createElement("div");
+  row.className = "row";
+
+  row.innerHTML = `
+    <div class="label">${item.section}</div>
+    <div class="content">${item.content}</div>
+    <div class="side">
+      ${item.side.title ? `<div class="side-title">${item.side.title}</div>` : ""}
+      ${item.side.description ? `<div class="side-desc">${item.side.description}</div>` : ""}
+    </div>
+  `;
+
+  app.appendChild(row);
+});
